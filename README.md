@@ -8,8 +8,6 @@
 
 - ORM (TypeORM) is used because queries using ORM are more readable but the ORM allows to issue raw SQL queries
 
-- DI (TypeDI): XXXXXXXX
-
 - Jest https://github.com/kulshekhar/ts-jest/issues/1913
 
 - I use webpack
