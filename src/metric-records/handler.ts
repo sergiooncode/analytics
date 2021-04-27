@@ -22,7 +22,6 @@ async function bootstrap(
 
     if(!connectionManager.has("default")){
         connectionManager.create({
-            name: "metric-records-conn",
             type: "postgres",
             host: "postgres",
             port: 5432,
