@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`query metrics 1`] = `
+Object {
+  "data": undefined,
+  "errors": Array [
+    [ValidationError: Cannot query field "id" on type "Metric".],
+  ],
+  "extensions": undefined,
+  "http": Object {
+    "headers": Headers {
+      Symbol(map): Object {},
+    },
+  },
+}
+`;

@@ -1,0 +1,58 @@
+# Welcome to serverless. Read the docs
+# https://serverless.com/framework/docs/
+
+# Serverless.yml is the configuration the CLI
+# uses to deploy your code to your provider of choice
+
+# The `service` block is the name of the service
+service: analytics
+
+disabledDeprecations:
+  - '*'
+
+frameworkVersion: "2"
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+
+functions:
+  metrics:
+    handler: src/metrics/handler.graphql
+    environment:
+      SLS_DEBUG: true
+    events:
+      - http:
+          path: metrics
+          method: post
+          cors: true
+          integration: lambda-proxy
+      - http:
+          path: metrics
+          method: get
+          cors: true
+          integration: lambda-proxy
+  metricRecords:
+    handler: src/metric-records/handler.graphql
+    environment:
+      SLS_DEBUG: true
+    events:
+      - http:
+          path: metric-records
+          method: post
+          cors: true
+          integration: lambda-proxy
+      - http:
+          path: metric-records
+          method: get
+          cors: true
+          integration: lambda-proxy
+
+plugins:
+  - serverless-offline
+  - serverless-webpack
+
+custom:
+  webpack:
+    includeModules: true
